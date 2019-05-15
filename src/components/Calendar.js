@@ -3,8 +3,6 @@ import BigCalendar from 'react-big-calendar';
 import 'react-big-calendar/lib/css/react-big-calendar.css';
 import moment from 'moment';
 
-import Training from './Training';
-
 
 class Calendar extends Component {
 
