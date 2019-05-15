@@ -3,6 +3,8 @@ import BigCalendar from 'react-big-calendar';
 import 'react-big-calendar/lib/css/react-big-calendar.css';
 import moment from 'moment';
 
+import Training from './Training';
+
 
 class Calendar extends Component {
 
@@ -34,6 +36,13 @@ class Calendar extends Component {
           title: this.state.trainings[i].activity
           }
           caledarEvents.push(event);
+          moment.locale('ko', {
+            week: {
+                dow: 1,
+                doy: 1,
+            },
+        });
+        BigCalendar.momentLocalizer(moment);
       }
 
         return (

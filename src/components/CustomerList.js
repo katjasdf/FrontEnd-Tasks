@@ -1,12 +1,11 @@
 import React, { Component } from 'react';
 import ReactTable from 'react-table';
 import 'react-table/react-table.css';
+
 import EditCustomer from './EditCustomer';
 import AddCustomer from './AddCustomer';
-import DeleteCustomer from './DeleteCustomer';
+import DeleteDialog from './DeleteDialog';
 
-import { CSVLink, CSVDownload } from "react-csv";
-import Button from '@material-ui/core/Button';
 import Snackbar from '@material-ui/core/Snackbar';
 import AddTraining from './AddTraining';
 
@@ -27,13 +26,11 @@ class CustomerList extends Component {
     };
 
     deleteCustomer = (link) => {
-        //if () {
         fetch(link, {method: 'DELETE'})
         .then(response => this.fetchCustomers())
         .then(response => this.setState({open:true, message: 'Customer deleted'}))
         .catch(err => console.error(err))
         }
-   // };
 
     addCustomer = (newCustomer) => { // github fetch post JSON
         fetch('https://customerrest.herokuapp.com/api/customers', {
@@ -91,14 +88,9 @@ class CustomerList extends Component {
                 show: false
             },
             {
+                id: 'name',
                 Header: 'Name',
-                accessor: 'name',
-                Cell: props => (
-                    <div>
-                        <span>{props.original.firstname} </span>
-                        <span>{props.original.lastname} </span>
-                    </div>
-                )
+                accessor: row => row.firstname + ' ' + row.lastname
             },
             {
                 Header: 'Street address',
@@ -116,15 +108,9 @@ class CustomerList extends Component {
                 show: false
             },
             {
+                id: 'address',
                 Header: 'Address',
-                accessor: 'address',
-                Cell: props => (
-                    <div>
-                        <span>{props.original.streetaddress}, </span>
-                        <span>{props.original.postcode}, </span>
-                        <span>{props.original.city} </span>
-                    </div>
-                )
+                accessor: row => row.streetaddress + ', ' + row.postcode + ', ' + row.city
             },
             {
                 Header: 'Email',
@@ -135,10 +121,10 @@ class CustomerList extends Component {
                 accessor: 'phone'
             },
             {
-                Header: '',
+                Header: 'Add training', 
                 filterable: false,
                 sortable: false,
-                width: 150,
+                width: 120,
                 accessor: 'links[0].href',
                 Cell: ({value}) => (
                  <AddTraining addTraining={this.addTraining} fetchCustomers={this.fetchCustomers} customer={value} />
@@ -146,7 +132,7 @@ class CustomerList extends Component {
 
             },
             {
-                Header: '',
+                Header: 'Edit',
                 filterable: false,
                 sortable: false,
                 width: 100,
@@ -157,13 +143,14 @@ class CustomerList extends Component {
 
             },
             {
-                Header: '',
+                Header: 'Delete',
                 filterable: false,
                 sortable: false,
                 width: 100,
                 accessor: 'links[0].href',
                 Cell: ({value}) => (
-                    <DeleteCustomer color="secondary" size="small" onClick={() => this.deleteCustomer(value)}>DELETE</DeleteCustomer>
+                    <DeleteDialog deleteAction={() => this.deleteCustomer(value)}></DeleteDialog>
+                   // <DeleteDialog deleteCustomer={this.deleteCustomer} customer={value}></DeleteDialog>
                 )
             }
         ]

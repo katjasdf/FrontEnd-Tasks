@@ -6,6 +6,8 @@ import Dialog from '@material-ui/core/Dialog';
 import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
 import DialogTitle from '@material-ui/core/DialogTitle';
+import { Icon } from 'antd';
+import "antd/dist/antd.css";
 
 class EditCustomer extends Component {
     state = {
@@ -52,15 +54,15 @@ class EditCustomer extends Component {
     render() {
         return (
                 <div>
-        <Button size="small" color="primary" onClick={this.handleClickOpen}>
-          Edit
+        <Button className="iconbutton" onClick={this.handleClickOpen}>
+          <Icon type="edit" />
         </Button>
         <Dialog
           open={this.state.open}
           onClose={this.handleClose}
           aria-labelledby="form-dialog-title"
         >
-          <DialogTitle id="form-dialog-title">New customer</DialogTitle>
+          <DialogTitle id="form-dialog-title">Edit customer</DialogTitle>
           <DialogContent>
             <TextField
               autoFocus // määrittä mihin aletaan kirjoittaa
@@ -121,10 +123,10 @@ class EditCustomer extends Component {
             />
           </DialogContent>
           <DialogActions>
-            <Button color="primary" onClick={this.handleClose} streetaddress="primary">
+            <Button onClick={this.handleClose} className="secondarybutton">
               Cancel
             </Button>
-            <Button color="primary" onClick={this.saveCustomer} streetaddress="primary">
+            <Button onClick={this.saveCustomer} className="button">
               Save
             </Button>
           </DialogActions>

@@ -1,18 +1,90 @@
+@import url("https://fonts.googleapis.com/css?family=Lora");
+@import url("https://fonts.googleapis.com/css?family=Lato");
+
 .App {
+  font-family: 'Lato', sans-serif;
   text-align: center;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
-  pointer-events: none;
+.image {
+  position: relative;
+  width: 100%;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.header {
+  font-family: 'Lora', serif;
+  font-size: 28px;
+  padding-right: 5px;
+  color: rgb(255, 115, 0);
+}
+
+.header:hover {
+  text-decoration: none;
+  color: black;
+}
+
+.nav-link:hover {
+  color: rgb(255, 115, 0) !important;
+}
+
+.nav-item:active {
+  color: rgb(255, 115, 0) !important;
+}
+
+.addButton {
+  /*text-align: right !important;*/
+  margin: 10px !important;
+  color: rgb(255, 115, 0) !important;
+  border-color: rgb(255, 115, 0) !important;
+}
+
+.addButton:hover {
+  background-color: rgb(255, 115, 0, 0.1) !important;
+  color: rgb(255, 115, 0) !important;
+  border-color: rgb(255, 115, 0) !important;
+}
+
+.button {
+  color: rgb(255, 115, 0) !important;
+}
+
+.iconbutton {
+  color: rgb(97, 95, 94) !important;
+}
+
+.iconbutton:hover {
+  background-color: rgb(255, 115, 0, 0.1) !important;
+}
+
+.button:hover {
+  background-color: rgb(255, 115, 0, 0.1) !important;
+}
+
+.secondarybutton {
+  color: rgb(179, 179, 179) !important;
+}
+
+.navbar navbar-light {
+  color: black !important;
+}
+
+.icon {
+  padding-left: 5px;
+}
+
+.dialog {
+  min-height: 500px;
+  max-height: 1000px;
+}
+
+.rbc-now {
+  color: rgb(255, 115, 0) !important;
+}
+
+.rbc-today {
+  background-color: rgb(255, 115, 0, 0.1) !important;
+}
+
+.rbc-event {
+  background-color: rgb(255, 115, 0) !important;
 }

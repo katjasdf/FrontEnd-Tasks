@@ -6,6 +6,8 @@ import Dialog from '@material-ui/core/Dialog';
 import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
 import DialogTitle from '@material-ui/core/DialogTitle';
+import { Icon } from 'antd';
+import "antd/dist/antd.css";
 
 class AddTraining extends Component {
     state = { // määrittää lomakkeen tilan ja kentät
@@ -26,7 +28,7 @@ class AddTraining extends Component {
 
       saveTraining = () => {
           const newTraining = {
-            date: this.state.date,
+            date: this.state.date + ":00.000",
             duration: this.state.duration,
             activity: this.state.activity,
             customer: this.props.customer
@@ -40,8 +42,8 @@ class AddTraining extends Component {
     render() {
         return (
                 <div>
-        <Button color="primary" onClick={this.handleClickOpen}>
-          Add training
+        <Button className="iconbutton" onClick={this.handleClickOpen}>
+          <Icon className="icon" type="plus-circle" />
         </Button>
         <Dialog
           open={this.state.open}
@@ -76,10 +78,10 @@ class AddTraining extends Component {
             />
           </DialogContent>
           <DialogActions>
-            <Button onClick={this.handleClose} color="primary">
+            <Button onClick={this.handleClose} className="secondarybutton">
               Cancel
             </Button>
-            <Button onClick={this.saveTraining} color="primary">
+            <Button onClick={this.saveTraining} className="button">
               Save
             </Button>
           </DialogActions>

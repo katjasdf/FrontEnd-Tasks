@@ -10,7 +10,8 @@ import {BrowserRouter, Switch, Route} from 'react-router-dom';
 class App extends Component {
   render() {
     return (
-      <div className="App">    
+      <div className="App">
+      <img className="image" src={require('./image.jpg')}/>
         <BrowserRouter>
           <div id='nav'>
             <Navigator/>

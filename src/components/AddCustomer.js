@@ -6,6 +6,8 @@ import Dialog from '@material-ui/core/Dialog';
 import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
 import DialogTitle from '@material-ui/core/DialogTitle';
+import { Icon } from 'antd';
+import "antd/dist/antd.css";
 
 class AddCustomer extends Component {
     state = { // määrittää lomakkeen tilan ja kentät
@@ -43,8 +45,8 @@ class AddCustomer extends Component {
     render() {
         return (
                 <div>
-        <Button style={{margin: 10}} variant="outlined" color="primary" onClick={this.handleClickOpen}>
-          Add a new customer
+        <Button className="addButton" variant="outlined" color="primary" onClick={this.handleClickOpen}>
+          Add new customer <Icon className="icon" type="user-add" />
         </Button>
         <Dialog
           open={this.state.open}
@@ -112,10 +114,10 @@ class AddCustomer extends Component {
             />
           </DialogContent>
           <DialogActions>
-            <Button onClick={this.handleClose} color="primary">
+            <Button onClick={this.handleClose} className="secondarybutton">
               Cancel
             </Button>
-            <Button onClick={this.saveCustomer} color="primary">
+            <Button onClick={this.saveCustomer} className="button">
               Save
             </Button>
           </DialogActions>
